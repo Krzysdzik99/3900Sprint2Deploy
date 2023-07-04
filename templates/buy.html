@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title text-success">Your {{ object.pizza }} is on the way!</h3>
+          <p class="card-text">Hungry for more? <a href="{% url 'home' %}">Buy More Pizzas</a></p>
+          <p class="card-text"><a href="{% url 'home' %}">Back to Home</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

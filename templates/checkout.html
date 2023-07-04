@@ -1,0 +1,55 @@
+
+{% extends 'base.html' %}
+
+<a href ="{% url 'home' %}">Home</a>
+
+{% block content %}
+
+<h2 class = "p-3 mb-2 bg-secondary text-white">Product Summary</h2><br>
+<h4 class="text-primary"><u>{{ object.pizza }}</u></h4>
+<br><h3 class="text-success">Toppings Added</h3>
+
+{% if object.onion is True %}
+<li>Onion</li>
+{% endif %}
+
+{% if object.tomato is True %}
+<li>Tomato</li>
+{% endif %}
+
+{% if object.cheese is True %}
+<li>Cheese</li>
+{% endif %}
+
+{% if object.sausage is True %}
+<li>Sausage</li>
+{% endif %}
+
+{% if object.pepper is True %}
+<li>Pepper</li>
+{% endif %}
+
+{% if object.chicken is True %}
+<li> Mushroom</li>
+{% endif %}
+
+{% if object.basil is True %}
+<li>Pepper</li>
+{% endif %}
+
+{% if object.mushroom is True %}
+<li>Mushroom</li>
+{% endif %}
+
+<!-- No topping warning-->
+{% if object.cheese is not True and object.onion is not True and object.tomato is not True %}
+<p>No Extra Toppings Added !</p>
+{% endif %}
+
+
+
+<p><a class="btn btn-outline-success" href="{% url 'buy' object.pk %}" role="button">Buy</a></p>
+<a href = "{% url 'update' object.pk %}">Edit</a> | <a href = "{% url 'home' %}">Cancel order</a>
+
+{% endblock content %}
+

@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h4 class="p-3 mb-2 bg-secondary text-white">Pizza Selected: {{ object.pizza }}</h4>
+
+@mixin gradient-bg($color: null) {
+  background-color: $color;
+
+  @if $enable-gradients {
+    background-image: var(--#{$variable-prefix}gradient);
+  }
+}
+
+<form action="" method = 'post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class = "btn btn-outline-primary btn-sm" type = 'submit'>Save changes</button>
+    <a class="btn btn-outline-danger btn-sm" href="{% url 'checkout' object.pk %}" role="button">Cancel</a>
+</form>
+
+{% endblock content %}

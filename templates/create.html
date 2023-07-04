@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h4 class="text-center">Change Pizza Name</h4>
+      <hr>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="text-center mt-4">
+          <button class="btn btn-primary" type="submit">Done</button>
+          <a href="{% url 'home' %}" class="btn btn-link">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
